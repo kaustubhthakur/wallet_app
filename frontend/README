@@ -1,0 +1,32 @@
+# Wallet Frontend (HTML/CSS/JS)
+
+This is the frontend for the Django Wallet Application.
+
+## Features
+
+- User Signup/Login
+- View Balance
+- Enable Wallet
+- View Transaction History
+
+## Folder Structure
+
+- `index.html`, `signup.html`, `login.html`, `dashboard.html`
+- `css/styles.css`
+- `js/api.js`, `auth.js`, `dashboard.js`
+
+## How to Run
+
+1. Host with Live Server or `python -m http.server`
+2. Update `API_BASE` in `js/api.js` as per your backend (default: `localhost:8000`)
+3. Ensure CORS is enabled on Django backend (`django-cors-headers`)
+
+## Security
+
+- Tokens stored in `localStorage`
+- All APIs use Bearer Auth
+
+## Backend Assumption
+
+- JWT Token or DRF Token for auth
+- `/api/signup/`, `/api/login/`, `/api/wallet/enable/`, `/api/wallet/balance/`, `/api/wallet/transactions/`

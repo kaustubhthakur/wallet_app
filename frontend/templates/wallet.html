@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <!-- Wallet Balance -->
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">Wallet Balance</div>
+            <div class="card-body">
+                <div id="wallet-status" class="alert alert-warning">Wallet disabled</div>
+                <h2 class="text-center" id="balance">₹0.00</h2>
+                <button id="enable-wallet" class="btn btn-success w-100">Enable Wallet</button>
+            </div>
+        </div>
+        
+        <!-- Transaction Form -->
+        <div class="card">
+            <div class="card-header">New Transaction</div>
+            <div class="card-body">
+                <form id="transaction-form">
+                    <div class="mb-3">
+                        <label class="form-label">Amount (₹)</label>
+                        <input type="number" class="form-control" id="amount" min="0" step="0.01" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Transaction Type</label>
+                        <select class="form-select" id="transaction-type" required>
+                            <option value="DEPOSIT">Deposit</option>
+                            <option value="WITHDRAWAL">Withdrawal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="description"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Transaction History -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>Transaction History</span>
+                <button class="btn btn-sm btn-outline-primary" onclick="loadPage('transactions')">
+                    View All
+                </button>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-transactions">
+                        <!-- Filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
